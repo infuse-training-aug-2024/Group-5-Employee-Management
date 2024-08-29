@@ -1,5 +1,5 @@
 import csv
-
+from tabulate import tabulate
 from employee_record import Employee
 import numpy as np
 from typing import List
@@ -20,6 +20,13 @@ class EmployeeManager:
                 performance=int(row['performance'])
             )
             self.employees.append(employee)
+
+    def get_employee_leave(self, employee_id: int) -> Employee:
+        for emp in self.employees:
+            if emp.employee_id == employee_id:
+                return emp.available_leaves
+
+        return None
 
     def save_info(self):
         # Prepare data for saving
@@ -84,8 +91,26 @@ class EmployeeManager:
         return None
 
     def list_employees(self) -> List[Employee]:
-        return self.employees
+        data = [
+            [
+                employee.employee_id,
+                employee.first_name,
+                employee.last_name,
+                employee.department,
+                employee.designation,
+                employee.salary,
+                employee.available_leaves,
+                employee.performance
+            ]
+            for employee in self.employees
+        ]
+
+        # Define the headers
+        headers = ["employee_id", "first_name", "last_name", "department", "designation", "salary", "available_leaves",
+                   "performance"]
+
+        # Print the table
+        print(tabulate(data, headers=headers, tablefmt='grid'))
 
 
-employeemanager = EmployeeManager()
-employeemanager.add_employee()
+

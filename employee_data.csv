@@ -1,23 +1,25 @@
-employee_id,first_name,last_name,department,designation,salary,attendance,performance
-100,Aeriela,Raul,accounts,tester,770020,19,1
-101,Kristan,Sherrie,it,software developer,749886,-15,1
-102,Alie,Tannie,it,tester,663308,13,1
-103,Leia,Dawkins,it,software developer,34545,-10,2
-104,Paule,Gamaliel,it,software developer,660052,-8,2
-105,Fidelia,Pascia,it,software developer,587488,-17,0
-106,Gertrud,Ader,accounts,tester,338947,-23,4
-107,Rosaline,Milde,accounts,tester,534120,-2,1
-108,Tiffie,Faso,it,hr,777628,-10,3
-109,Vevay,Felecia,accounts,tester,32586,4,0
-110,Sara-Ann,Old,accounts,software developer,909737,-1,5
-111,Raina,Louanna,accounts,tester,940972,-10,4
-112,Hayley,Fillbert,it,hr,240230,-13,5
-113,Hayley,Milson,accounts,tester,747483,-7,3
-114,Angela,Kermit,accounts,hr,679785,-10,4
-115,Justinn,Dalli,accounts,hr,395814,22,4
-116,Alia,Janene,accounts,hr,215126,9,0
-117,Ariela,Burnside,accounts,hr,53962,11,3
-118,Korrie,Vivle,it,software developer,620211,12,1
-119,Minne,Alice,it,hr,841147,21,3
-120,Desirae,Hanleigh,accounts,hr,101000,5,4
-121,Tabbatha,Margret,it,software developer,774114,-3,5
+employee_id,first_name,last_name,department,salary,designation,available_leaves,performance
+100,Aeriela,Raul,accounts,770020.0,tester,None,1
+101,Kristan,Sherrie,it,749886.0,software developer,None,1
+102,Alie,Tannie,it,663308.0,tester,None,1
+103,Leia,Dawkins,it,34545.0,software developer,None,2
+104,Paule,Gamaliel,it,660052.0,software developer,None,2
+105,Fidelia,Pascia,it,587488.0,software developer,None,0
+106,Gertrud,Ader,accounts,338947.0,tester,None,4
+107,Rosaline,Milde,accounts,534120.0,tester,None,1
+108,Tiffie,Faso,it,777628.0,hr,None,3
+109,Vevay,Felecia,accounts,32586.0,tester,None,0
+110,Sara-Ann,Old,accounts,909737.0,software developer,None,5
+111,Raina,Louanna,accounts,940972.0,tester,None,4
+112,Hayley,Fillbert,it,240230.0,hr,None,5
+113,Hayley,Milson,accounts,747483.0,tester,None,3
+114,Angela,Kermit,accounts,679785.0,hr,None,4
+115,Justinn,Dalli,accounts,395814.0,hr,None,4
+116,Alia,Janene,accounts,215126.0,hr,None,0
+117,Ariela,Burnside,accounts,53962.0,hr,None,3
+118,Korrie,Vivle,it,620211.0,software developer,None,1
+119,Minne,Alice,it,841147.0,hr,None,3
+120,Desirae,Hanleigh,accounts,101000.0,hr,None,4
+121,Tabbatha,Margret,it,774114.0,software developer,None,5
+122,sam,kk,it,1222.0,it,24,0
+123,qsa,asa,it,10000.0,it,24,0
