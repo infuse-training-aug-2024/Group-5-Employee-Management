@@ -16,7 +16,7 @@ class EmployeeManager:
                 department=row['department'],
                 salary=float(row['salary']),
                 designation=row['designation'],
-                attendance=row['attendance'],
+                available_leaves=row['available_leaves'],
                 performance=int(row['performance'])
             )
             self.employees.append(employee)
@@ -32,7 +32,7 @@ class EmployeeManager:
                 employee.department,
                 employee.salary,
                 employee.designation,
-                employee.attendance,
+                employee.available_leaves,
                 employee.performance
             ])
 
@@ -40,7 +40,7 @@ class EmployeeManager:
         data_array = np.array(data, dtype=object)
 
         # Define the header
-        header = ['employee_id', 'first_name', 'last_name', 'department', 'salary', 'designation', 'attendance',
+        header = ['employee_id', 'first_name', 'last_name', 'department', 'salary', 'designation', 'available_leaves',
                   'performance']
 
         # Save data to CSV file
@@ -56,9 +56,9 @@ class EmployeeManager:
         department = input("Enter Department Name: ")
         salary = float(input("Enter Salary: "))
         designation = input("Enter Designation: ")
-        attendance = 24
+        available_leaves = 24
         performance = 0
-        new_employee = Employee(new_employee_id,first_name,last_name,department,salary,designation,attendance,performance)
+        new_employee = Employee(new_employee_id,first_name,last_name,department,salary,designation,available_leaves,performance)
         self.employees.append(new_employee)
         self.save_info()
 
@@ -76,7 +76,7 @@ class EmployeeManager:
         department = {emp.department}
         designation  = {emp.designation}
         salary = {emp.salary}
-        attendance: {emp.attendance}
+        available_leaves: {emp.available_leaves}
         performance = {emp.performance}
 """)
                 return emp
@@ -88,4 +88,4 @@ class EmployeeManager:
 
 
 employeemanager = EmployeeManager()
-employeemanager.get_employee(102)
+employeemanager.add_employee()
