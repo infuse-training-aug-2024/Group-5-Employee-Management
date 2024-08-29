@@ -1,4 +1,4 @@
-emp_id,firstname,lastname,department,designation,salary,attendance,performance
+employee_id,first_name,last_name,department,designation,salary,attendance,performance
 100,Aeriela,Raul,accounts,tester,770020,19,1
 101,Kristan,Sherrie,it,software developer,749886,-15,1
 102,Alie,Tannie,it,tester,663308,13,1

@@ -66,10 +66,13 @@ class Employee:
 
 class EmployeeManager:
     def __init__(self):
+        data = np.genfromtxt('employee_data.csv', delimiter=',', dtype=None, names=True, encoding='utf-8')
+
         self.employees: List[Employee] = []
 
-    def add_employee(self, employee: Employee):
-        self.employees.append(employee)
+    def add_employee(self):
+
+        #self.employees.append(employee)
 
     def remove_employee(self, employee_id: int):
         self.employees = [emp for emp in self.employees if emp.employee_id != employee_id]
