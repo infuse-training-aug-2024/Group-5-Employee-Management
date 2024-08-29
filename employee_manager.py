@@ -23,6 +23,7 @@ class EmployeeManager:
             print(employee.employee_id)
 
     def add_employee(self, employee: Employee):
+        new_employee
         self.employees.append(employee)
 
     def remove_employee(self, employee_id: int):
