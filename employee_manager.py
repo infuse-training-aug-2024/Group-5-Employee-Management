@@ -74,6 +74,11 @@ performance = {employee.performance}
 
         print(tabulate(data, headers=headers, tablefmt='grid'))
 
+    def get_employee_salary(self, employee_id: int) -> float | None:
+        for employee in self.employees:
+            if employee.employee_id == employee_id:
+                return employee.salary
+        return None
 
     def get_employee_performance(self, employee_id: int) -> int|None:
         for employee in self.employees:
@@ -102,3 +107,12 @@ performance = {employee.performance}
                 employee.available_leaves = updated_available_leaves
         FileHandling.save_info_employee(self.employees,"employee_data.csv")
         return None
+
+    def id_valid_employee_id(self, employee_id: int)->bool:
+        if employee_id < 100:
+            return False
+        for employee in self.employees:
+            if employee_id == employee.employee_id:
+                return True
+        return False
+

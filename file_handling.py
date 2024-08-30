@@ -1,4 +1,6 @@
 import numpy as np
+import os
+import csv
 
 class FileHandling:
 
@@ -62,3 +64,26 @@ class FileHandling:
             return None
 
 
+
+    @classmethod
+    def save_leave_info(cls , leave_details: []):
+        filename = "employee_leaves_data.csv"
+        file_exists = os.path.isfile(filename)
+        try:
+            with open(filename, mode='a') as file:
+                writer = csv.writer(file)
+                if not file_exists:
+                    writer.writerow(['Employee ID', 'Start Date', 'End Date','Applied on', 'Available leaves'])
+                writer.writerow(leave_details)
+
+        except FileNotFoundError as fnf_error:
+            print(f"Error: File '{filename}' not found. {fnf_error}")
+            return None
+
+        except ValueError as val_error:
+            print(f"Error: Could not parse '{filename}' as CSV. {val_error}")
+            return None
+
+        except Exception as e:
+            print(f"An unexpected error occurred while reading the file: {e}")
+            return None
