@@ -96,9 +96,13 @@ class EmployeeManager:
         print(tabulate(data, headers=headers, tablefmt='grid'))
 
 
-    def set_employee_performance(self, employee_id: int , average_performance: float):
+    def set_employee_performance(self, employee_id: int , average_performance: int):
         for employee in self.employees:
             if employee.employee_id == employee_id:
                 employee.performance = average_performance
+        FileHandling().save_info_employee(self.employees,"employee_data.csv")
         return None
 
+
+
+EmployeeManager().set_employee_performance(103,6)
