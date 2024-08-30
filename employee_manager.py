@@ -52,24 +52,26 @@ class EmployeeManager:
 
 
 
-    def get_employee(self, employee_id: int) -> Employee:
-        for emp in self.employees:
-            if emp.employee_id == employee_id:
+    def get_employee(self, employee_id: int) -> Employee|None:
+        for employee in self.employees:
+            if employee.employee_id == employee_id:
                 print(f"""   
-        employee_id = {emp.employee_id}
-        first_name = {emp.first_name}
-        last_name = {emp.last_name}
-        department = {emp.department}
-        designation  = {emp.designation}
-        salary = {emp.salary}
-        available_leaves: {emp.available_leaves}
-        performance = {emp.performance}
+        employee_id = {employee.employee_id}
+        first_name = {employee.first_name}
+        last_name = {employee.last_name}
+        department = {employee.department}
+        designation  = {employee.designation}
+        salary = {employee.salary}
+        available_leaves: {employee.available_leaves}
+        performance = {employee.performance}
 """)
-                return emp
+                return employee
 
         return None
 
-    def list_employees(self) -> List[Employee]:
+
+
+    def list_employees(self):
         data = [
             [
                 employee.employee_id,
@@ -88,6 +90,8 @@ class EmployeeManager:
         headers = ["employee_id", "first_name", "last_name", "department", "designation", "salary", "available_leaves",
                    "performance"]
 
+
+
         # Print the table
         print(tabulate(data, headers=headers, tablefmt='grid'))
 
@@ -95,8 +99,6 @@ class EmployeeManager:
     def set_employee_performance(self, employee_id: int , average_performance: float):
         for employee in self.employees:
             if employee.employee_id == employee_id:
-
-                return employee
-
+                employee.performance = average_performance
         return None
 
