@@ -1,7 +1,8 @@
 from performance import Performance
 from employee_manager import EmployeeManager
 from employee import Employee
-from leaves import Leave
+leaves import Leave
+
 
 def employee_specific_functions(input_employee_id):
     print("""
