@@ -39,22 +39,23 @@ class Payroll:
         pass
 
 class Employee:
-    def __init__(self, employee_id: int, first_name: str, last_name: str, department: str, salary: float, designation: str , attendance: int, performance: int):
+    def __init__(self, employee_id: int, first_name: str, last_name: str, department: str, salary: float, designation: str , available_leaves: int, performance: int):
+        self.available_leaves = available_leaves
         self.employee_id = employee_id
         self.first_name = first_name
         self.last_name = last_name
         self.department = department
         self.designation  = designation
         self.salary = salary
-        self.attendance: attendance
+        # self.available_leaves: available_leaves
         self.performance = performance
 
     def calculate_salary(self) -> float:
         # Example logic for calculating salary
         return self.salary
 
-    def mark_attendance(self, status: bool):
-        self.attendance.append(status)
+    def mark_available_leaves(self, status: bool):
+        self.available_leaves.append(status)
 
     def request_leave(self, leave: Leave):
         self.leaves.append(leave)
@@ -64,21 +65,24 @@ class Employee:
         self.performance = performance
         performance.evaluate()
 
-class EmployeeManager:
-    def __init__(self):
-        self.employees: List[Employee] = []
-
-    def add_employee(self, employee: Employee):
-        self.employees.append(employee)
-
-    def remove_employee(self, employee_id: int):
-        self.employees = [emp for emp in self.employees if emp.employee_id != employee_id]
-
-    def get_employee(self, employee_id: int) -> Employee:
-        for emp in self.employees:
-            if emp.employee_id == employee_id:
-                return emp
-        return None
-
-    def list_employees(self) -> List[Employee]:
-        return self.employees
+# class EmployeeManager:
+#     def __init__(self):
+#         data = np.genfromtxt('employee_data.csv', delimiter=',', dtype=None, names=True, encoding='utf-8')
+#
+#         self.employees: List[Employee] = []
+#
+#     def add_employee(self, employee: Employee):
+#
+#         self.employees.append(employee)
+#
+#     def remove_employee(self, employee_id: int):
+#         self.employees = [emp for emp in self.employees if emp.employee_id != employee_id]
+#
+#     def get_employee(self, employee_id: int) -> Employee:
+#         for emp in self.employees:
+#             if emp.employee_id == employee_id:
+#                 return emp
+#         return None
+#
+#     def list_employees(self) -> List[Employee]:
+#         return self.employees
