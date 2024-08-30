@@ -3,11 +3,11 @@ employee_id,first_name,last_name,department,salary,designation,available_leaves,
 102,Alie,Tannie,it,663308.0,tester,None,1
 103,Leia,Dawkins,it,34545.0,software developer,None,2
 104,Paule,Gamaliel,it,660052.0,software developer,None,2
-105,Fidelia,Pascia,it,587488.0,software developer,None,0
+105,Fidelia,Pascia,it,587488.0,software developer,None,1
 106,Gertrud,Ader,accounts,338947.0,tester,None,4
 107,Rosaline,Milde,accounts,534120.0,tester,None,1
-108,Tiffie,Faso,it,777628.0,hr,None,3
-109,Vevay,Felecia,accounts,32586.0,tester,None,0
+108,Tiffie,Faso,it,777628.0,hr,None,3.0
+109,Vevay,Felecia,accounts,32586.0,tester,None,3
 110,Sara-Ann,Old,accounts,909737.0,software developer,None,5
 111,Raina,Louanna,accounts,940972.0,tester,None,4
 112,Hayley,Fillbert,it,240230.0,hr,None,5
@@ -22,4 +22,4 @@ employee_id,first_name,last_name,department,salary,designation,available_leaves,
 121,Tabbatha,Margret,it,774114.0,software developer,None,5
 122,sam,kk,it,1222.0,it,24,0
 123,qsa,asa,it,10000.0,it,24,0
-124,raj,k,it,10000.0,it,24,0
+124,raj,k,it,10000.0,it,24,2

@@ -105,4 +105,4 @@ class EmployeeManager:
 
 
 
-EmployeeManager().set_employee_performance(103,6)
+# EmployeeManager().set_employee_performance(103,6)
