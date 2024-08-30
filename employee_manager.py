@@ -43,17 +43,7 @@ class EmployeeManager:
     def get_employee(self, employee_id: int) -> Employee|None:
         for employee in self.employees:
             if employee.employee_id == employee_id:
-                print(f"""employee_id = {employee.employee_id}
-first_name = {employee.first_name}
-last_name = {employee.last_name}
-department = {employee.department}
-designation  = {employee.designation}
-salary = {employee.salary}
-available_leaves: {employee.available_leaves}
-performance = {employee.performance}
-""")
                 return employee
-
         return None
 
 
