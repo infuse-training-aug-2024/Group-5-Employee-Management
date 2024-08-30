@@ -1,6 +1,5 @@
 employee_id,first_name,last_name,department,salary,designation,available_leaves,performance
 100,Aeriela,Raul,accounts,770020.0,tester,None,1
-101,Kristan,Sherrie,it,749886.0,software developer,None,1
 102,Alie,Tannie,it,663308.0,tester,None,1
 103,Leia,Dawkins,it,34545.0,software developer,None,2
 104,Paule,Gamaliel,it,660052.0,software developer,None,2
@@ -23,3 +22,4 @@ employee_id,first_name,last_name,department,salary,designation,available_leaves,
 121,Tabbatha,Margret,it,774114.0,software developer,None,5
 122,sam,kk,it,1222.0,it,24,0
 123,qsa,asa,it,10000.0,it,24,0
+124,raj,k,it,10000.0,it,24,0

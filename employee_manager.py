@@ -1,62 +1,35 @@
-import csv
 from tabulate import tabulate
 from employee_record import Employee
-import numpy as np
 from typing import List
+from file_handling import FileHandling
 
 class EmployeeManager:
+
+
+
     def __init__(self):
-        data = np.genfromtxt('employee_data.csv', delimiter=',', dtype=None, names=True, encoding='utf-8')
+
+        data = FileHandling().read_csv("employee_data.csv")
         self.employees: List[Employee] = []
         for row in data:
-            employee = Employee(
-                employee_id=int(row['employee_id']),
-                first_name=row['first_name'],
-                last_name=row['last_name'],
-                department=row['department'],
-                salary=float(row['salary']),
-                designation=row['designation'],
-                available_leaves=row['available_leaves'],
-                performance=int(row['performance'])
+            employee = Employee(int(row['employee_id']),row['first_name'],row['last_name'],row['department'],float(row['salary']),row['designation'],row['available_leaves'],int(row['performance'])
             )
             self.employees.append(employee)
 
-    def get_employee_leave(self, employee_id: int) -> Employee:
-        for emp in self.employees:
-            if emp.employee_id == employee_id:
-                return emp.available_leaves
 
+
+
+    def get_employee_leave(self, employee_id: int) -> int | None:
+        for employee in self.employees:
+            if employee.employee_id == employee_id:
+                return employee.available_leaves
         return None
 
-    def save_info(self):
-        # Prepare data for saving
-        data = []
-        for employee in self.employees:
-            data.append([
-                employee.employee_id,
-                employee.first_name,
-                employee.last_name,
-                employee.department,
-                employee.salary,
-                employee.designation,
-                employee.available_leaves,
-                employee.performance
-            ])
-
-        # Convert data to a NumPy array
-        data_array = np.array(data, dtype=object)
-
-        # Define the header
-        header = ['employee_id', 'first_name', 'last_name', 'department', 'salary', 'designation', 'available_leaves',
-                  'performance']
-
-        # Save data to CSV file
-        np.savetxt('employee_data.csv', data_array, delimiter=',', header=','.join(header), comments='', fmt='%s')
 
 
 
     def add_employee(self):
-        print(self.employees)
+
         new_employee_id = self.employees[-1].employee_id+1
         first_name = input("Enter First Name of Employee: ")
         last_name = input("Enter Last Name of Employee: ")
@@ -67,11 +40,17 @@ class EmployeeManager:
         performance = 0
         new_employee = Employee(new_employee_id,first_name,last_name,department,salary,designation,available_leaves,performance)
         self.employees.append(new_employee)
-        self.save_info()
+        FileHandling().save_info_employee(self.employees,"employee_data.csv")
+
+
+
 
     def remove_employee(self, employee_id: int):
         self.employees = [emp for emp in self.employees if emp.employee_id != employee_id]
-        self.save_info()
+        FileHandling().save_info_employee(self.employees,"employee_data.csv")
+
+
+
 
     def get_employee(self, employee_id: int) -> Employee:
         for emp in self.employees:
@@ -113,4 +92,11 @@ class EmployeeManager:
         print(tabulate(data, headers=headers, tablefmt='grid'))
 
 
+    def set_employee_performance(self, employee_id: int , average_performance: float):
+        for employee in self.employees:
+            if employee.employee_id == employee_id:
+
+                return employee
+
+        return None
 
