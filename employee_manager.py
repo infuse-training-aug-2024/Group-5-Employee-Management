@@ -1,7 +1,8 @@
 from tabulate import tabulate
-from employee_record import Employee
+from employee import Employee
 from typing import List
 from file_handling import FileHandling
+from user_input import UserInput
 
 class EmployeeManager:
 
@@ -16,23 +17,17 @@ class EmployeeManager:
 
 
 
-    def get_employee_leave(self, employee_id: int) -> int | None:
-        for employee in self.employees:
-            if employee.employee_id == employee_id:
-                return employee.available_leaves
-        return None
-
     def add_employee(self):
-
-        new_employee_id = self.employees[-1].employee_id+1
-        first_name = input("Enter First Name of Employee: ")
-        last_name = input("Enter Last Name of Employee: ")
-        department = input("Enter Department Name: ")
-        salary = float(input("Enter Salary: "))
-        designation = input("Enter Designation: ")
+        userinput = UserInput()
+        new_employee_id = self.employees[-1].employee_id + 1
+        input_first_name = userinput.get_employee_first_name()
+        input_last_name = userinput.get_employee_last_name()
+        input_department = userinput.get_employee_department()
+        input_salary = userinput.get_employee_salary()
+        input_designation = userinput.get_employee_designation()
         available_leaves = 24
         performance = 0
-        new_employee = Employee(new_employee_id,first_name,last_name,department,salary,designation,available_leaves,performance)
+        new_employee = Employee(new_employee_id,input_first_name,input_last_name,input_department,input_salary,input_designation,available_leaves,performance)
         self.employees.append(new_employee)
         FileHandling.save_info_employee(self.employees,"employee_data.csv")
 
@@ -41,6 +36,12 @@ class EmployeeManager:
         FileHandling.save_info_employee(self.employees,"employee_data.csv")
 
     def get_employee(self, employee_id: int) -> Employee|None:
+        for employee in self.employees:
+            if employee.employee_id == employee_id:
+                return employee
+        return None
+
+    def print_employee(self, employee_id: int) :
         for employee in self.employees:
             if employee.employee_id == employee_id:
                 print(f"""employee_id = {employee.employee_id}
@@ -52,10 +53,6 @@ salary = {employee.salary}
 available_leaves: {employee.available_leaves}
 performance = {employee.performance}
 """)
-                return employee
-
-        return None
-
 
 
     def list_employees(self):
@@ -86,7 +83,9 @@ performance = {employee.performance}
 
     def get_employee_available_leaves(self, employee_id: int) -> int|None:
         for employee in self.employees:
+            print(employee.available_leaves)
             if employee.employee_id == employee_id:
+
                 return employee.available_leaves
         return None
 
