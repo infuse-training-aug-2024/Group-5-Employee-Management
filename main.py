@@ -1,8 +1,14 @@
 from performance import Performance
 from employee_manager import EmployeeManager
+<<<<<<< HEAD
 from leaves import Leave
 from user_input import UserInput
 from accounts import Payroll
+=======
+from employee import Employee
+leaves import Leave
+
+>>>>>>> f4c328bab15617bb179b9bebcdab40cdf1d620d3
 
 def employee_specific_functions(input_employee_id):
     print("""
