@@ -1,7 +1,8 @@
 from performance import Performance
 from employee_manager import EmployeeManager
-from employee import Employee
-#from leaves import Leave
+from leaves import Leave
+from user_input import UserInput
+from accounts import Payroll
 
 def employee_specific_functions(input_employee_id):
     print("""
@@ -12,8 +13,20 @@ def employee_specific_functions(input_employee_id):
     manager_choice_in_employee = int(input())
 
     match manager_choice_in_employee:
-        # case 1:
-        # # actions
+        case 1:
+            payroll = Payroll(input_employee_id)
+            print("""
+1) Calculate total salary
+2) Generate total salary bill           
+            """)
+            account_user_input = int(input("Select option: "))
+            match account_user_input:
+                case 1:
+                    Payroll.calculate_total(payroll)
+                case 2:
+                    Payroll.generate_salary_slip(payroll)
+                case _:
+                    print("Invalid option")
         case 2:
             print("Give scores for the following employee criteria:")
             behaviour = int(input("Enter Behaviour Rating (1-5): "))
@@ -23,34 +36,25 @@ def employee_specific_functions(input_employee_id):
             emotional_intelligence = int(input("Enter Emotional Intelligence Rating (1-5): "))
             per = Performance(input_employee_id, behaviour, team_collaboration, verbal_skills, critical_thinking, emotional_intelligence)
             per.save_to_csv()
-        # actions
-
 
         case 3:
 
-            print("""
-            1) Apply for leave
-            2) Update leave status
-            3) Display available leaves
+            leave = Leave()
+            print("""1) Apply for leave
+2) Display available leaves
                 """)
-
-            print("leave functions: ")
-            leave_variable = int(input("Enter your choice: "))
-            l = Leave()
-            match leave_variable:
+            leaves_user_input = int(input("Select option: "))
+            match leaves_user_input:
                 case 1:
-                    emp = EmployeeManager()
-                    remaining_leaves = emp.get_employee_leave(input_employee_id)
-                    print(remaining_leaves)
-                    # l.apply_leave()
+                    start_date,end_date = UserInput().get_leave_dates()
+                    leave.take_leave(input_employee_id,start_date, end_date)
+                case 2:
+                    leave.show_leaves_left(input_employee_id)
+                case _:
+                    print("Invalid option")
 
-            l = Leave()
-
-
-
-            # actions
-        # case _:
-        # # default
+        case _:
+            print("Invalid option")
 
 
 def main():
@@ -62,16 +66,18 @@ def main():
     """)
     manager_choice = int(input())
     employeemanager = EmployeeManager()
+
     match manager_choice:
         case 1:
             employeemanager.add_employee()
         case 2:
             employeemanager.list_employees()
         case 3:
-            input_employee_id = int(input("Enter employee_id: "))
-            #check employee is valid
-            employee_specific_functions(input_employee_id)
-            #actions
+            employee_id = UserInput().get_employee_id()
+            if employeemanager.is_valid_employee_id(employee_id):
+                employee_specific_functions(employee_id)
+            else:
+                print("Employee doest exist in database")
         case 4:
             input_employee_id = int(input("Enter employee_id: "))
             employeemanager.remove_employee(input_employee_id)

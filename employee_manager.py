@@ -81,14 +81,13 @@ performance = {employee.performance}
         return None
 
     def get_employee_performance(self, employee_id: int) -> int|None:
-        for employee in self.employees:
+        for employee in self.employees :
             if employee.employee_id == employee_id:
                 return employee.performance
         return None
 
     def get_employee_available_leaves(self, employee_id: int) -> int|None:
         for employee in self.employees:
-            print(employee.available_leaves)
             if employee.employee_id == employee_id:
 
                 return employee.available_leaves
@@ -108,9 +107,7 @@ performance = {employee.performance}
         FileHandling.save_info_employee(self.employees,"employee_data.csv")
         return None
 
-    def id_valid_employee_id(self, employee_id: int)->bool:
-        if employee_id < 100:
-            return False
+    def is_valid_employee_id(self, employee_id: int)->bool:
         for employee in self.employees:
             if employee_id == employee.employee_id:
                 return True

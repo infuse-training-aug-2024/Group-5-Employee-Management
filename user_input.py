@@ -78,7 +78,7 @@ class UserInput:
             except Exception as e:
                 print(f"An error occurred: {e}")
 
-    def get_employee_id(self,) -> int:
+    def get_employee_id(self) -> int:
         try:
             while True:
                 employee_id = int(input("Enter employee ID: ").strip())
@@ -90,6 +90,28 @@ class UserInput:
 
         except ValueError:
             print("Invalid input. Please enter a valid number.")
+
+
+
+    def get_leave_dates(self) -> (str,str):
+        start_date_str = ""
+        try:
+            while True:
+                start_date_str = str(input("Enter leave start date: "))
+                break
+        except:
+            print("Enter valid start date")
+
+        try:
+            while True:
+                end_date_str = str(input(("Enter leave end date: ")))
+                return start_date_str,end_date_str
+        except:
+            print("Enter valid end date")
+
+
+
+
 
 
 
