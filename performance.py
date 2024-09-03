@@ -38,7 +38,7 @@ class Performance:
                     data['emotional_intelligence'] = self.emotional_intelligence
                     data['average'] = self.average
                     updated = True
-                rows.append(tuple(data))  # Ensure it's added as a tuple
+                rows.append(data)  # Ensure it's added as a tuple
             else:
                 # Normal case, iterate over each row
                 for row in data:
